@@ -7,9 +7,9 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;700&family=Reem+Kufi:wght@500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap">
 <style>
-/* Layout: a green banner with an arc of twelve stars (the twelve tribes), then stage cards and one-question-at-a-time quiz. */
+/* Layout: a green banner with an arc of twelve stars (the twelve tribes), then stage cards and one-question-at-a-time quiz. All type is Naskh. */
 :root {
   --bg: #f2f4f1;
   --surface: #ffffff;
@@ -26,8 +26,7 @@
   --good-bg: #e0f2e8;
   --bad: #a33a2c;
   --bad-bg: #f8e3df;
-  --font-display: "Reem Kufi", "Noto Naskh Arabic", "Segoe UI", Tahoma, sans-serif;
-  --font-body: "Noto Naskh Arabic", "Segoe UI", Tahoma, serif;
+  --font-naskh: "Noto Naskh Arabic", "Traditional Arabic", "Simplified Arabic", "Segoe UI", Tahoma, serif;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
@@ -48,11 +47,12 @@
 * { box-sizing: border-box; }
 body {
   background: var(--bg); color: var(--fg);
-  font-family: var(--font-body); font-size: 18px; line-height: 1.8;
+  font-family: var(--font-naskh); font-size: 19px; line-height: 1.95;
   padding-left: max(16px, env(safe-area-inset-left, 0px));
   padding-right: max(16px, env(safe-area-inset-right, 0px));
   padding-block: 0 40px;
 }
+button { font-family: var(--font-naskh); }
 .wrap { max-width: 720px; margin-inline: auto; }
 .hero {
   background: var(--hero-bg); color: var(--hero-fg);
@@ -61,66 +61,66 @@ body {
   text-align: center;
 }
 .hero svg { display: block; margin: 0 auto 6px; width: min(300px, 80%); height: auto; color: var(--hero-gold); }
-.hero h1 { font-family: var(--font-display); font-size: clamp(28px, 7vw, 40px); margin: 0; line-height: 1.4; text-wrap: balance; }
-.hero p { margin: 6px auto 0; max-width: 34em; font-size: 17px; opacity: .9; text-wrap: balance; }
-h2 { font-family: var(--font-display); font-size: 22px; margin: 0; line-height: 1.5; }
+.hero h1 { font-weight: 700; font-size: clamp(30px, 7.5vw, 44px); margin: 0; line-height: 1.5; text-wrap: balance; }
+.hero p { margin: 4px auto 0; max-width: 34em; font-size: 18px; opacity: .92; text-wrap: balance; }
+h2 { font-weight: 700; font-size: 24px; margin: 0; line-height: 1.6; }
 .stages { display: grid; gap: 12px; margin-top: 22px; }
 .stage {
   display: flex; gap: 14px; align-items: center; width: 100%; text-align: right;
   background: var(--surface); border: 1px solid var(--line); border-radius: 10px;
-  padding: 14px 16px; color: inherit; font: inherit; cursor: pointer; min-width: 0;
+  padding: 12px 16px; color: inherit; font: inherit; cursor: pointer; min-width: 0;
 }
 .stage:hover { border-color: var(--accent); }
-.stage .no { font-family: var(--font-display); font-size: 26px; color: var(--gold); width: 1.4em; flex: none; text-align: center; }
+.stage .no { font-weight: 700; font-size: 28px; color: var(--gold); width: 1.3em; flex: none; text-align: center; }
 .stage .t { flex: 1; min-width: 0; }
-.stage .t b { display: block; font-family: var(--font-display); font-size: 19px; font-weight: 700; }
-.stage .t span { color: var(--muted); font-size: 15.5px; }
-.stage .best { font-size: 14.5px; color: var(--muted); flex: none; white-space: nowrap; }
-.all { margin-top: 12px; }
+.stage .t b { display: block; font-weight: 700; font-size: 20px; line-height: 1.7; }
+.stage .t span { color: var(--muted); font-size: 16px; line-height: 1.7; display: block; }
+.stage .best { font-size: 15px; color: var(--muted); flex: none; white-space: nowrap; }
+.extra { margin-top: 12px; display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
 button:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
 .btn {
-  font: inherit; font-family: var(--font-display); font-size: 17px; cursor: pointer;
-  background: var(--accent); color: var(--accent-fg); border: 0; border-radius: 8px; padding: 10px 22px;
+  font-weight: 700; font-size: 18px; cursor: pointer;
+  background: var(--accent); color: var(--accent-fg); border: 0; border-radius: 8px; padding: 8px 24px;
 }
 .btn.ghost { background: transparent; color: var(--fg); border: 1px solid var(--line); }
 .btn:hover { filter: brightness(1.08); }
-.top { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 20px; font-size: 15.5px; color: var(--muted); }
-.linkbtn { background: none; border: 0; color: var(--accent); font: inherit; cursor: pointer; padding: 4px 0; text-decoration: underline; }
+.top { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 20px; font-size: 16px; color: var(--muted); }
+.linkbtn { background: none; border: 0; color: var(--accent); font-size: inherit; cursor: pointer; padding: 4px 0; text-decoration: underline; }
 .bar { height: 6px; background: var(--line); border-radius: 3px; margin-top: 8px; overflow: hidden; }
 .bar i { display: block; height: 100%; background: var(--accent); width: 0; transition: width .3s; }
 .qcard { margin-top: 18px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 20px 18px; }
-.qcard h3 { font-family: var(--font-display); font-weight: 500; font-size: 22px; line-height: 1.7; margin: 0 0 16px; text-wrap: balance; }
+.qcard h3 { font-weight: 700; font-size: 23px; line-height: 1.9; margin: 0 0 14px; text-wrap: balance; }
 .opts { display: grid; gap: 10px; }
 .opt {
   display: flex; gap: 12px; align-items: flex-start; text-align: right; width: 100%;
-  font: inherit; color: inherit; background: var(--bg); border: 1.5px solid var(--line);
-  border-radius: 9px; padding: 10px 14px; cursor: pointer; min-width: 0;
+  font-size: inherit; line-height: 1.8; color: inherit; background: var(--bg); border: 1.5px solid var(--line);
+  border-radius: 9px; padding: 8px 14px; cursor: pointer; min-width: 0;
 }
 .opt:hover:not(:disabled) { border-color: var(--accent); }
-.opt .l { font-family: var(--font-display); color: var(--gold); flex: none; width: 1.3em; }
+.opt .l { font-weight: 700; color: var(--gold); flex: none; width: 1.3em; }
 .opt .x { min-width: 0; overflow-wrap: anywhere; }
 .opt:disabled { cursor: default; }
 .opt.ok { border-color: var(--good); background: var(--good-bg); }
 .opt.no { border-color: var(--bad); background: var(--bad-bg); }
-.fb { margin-top: 16px; padding: 12px 14px; border-radius: 9px; border: 1px solid var(--line); background: var(--bg); font-size: 17px; }
-.fb strong { font-family: var(--font-display); display: block; margin-bottom: 2px; }
+.fb { margin-top: 16px; padding: 12px 14px; border-radius: 9px; border: 1px solid var(--line); background: var(--bg); font-size: 18px; line-height: 1.9; }
+.fb strong { font-weight: 700; display: block; margin-bottom: 2px; }
 .fb.ok strong { color: var(--good); }
 .fb.no strong { color: var(--bad); }
 .next { margin-top: 16px; display: flex; justify-content: flex-start; }
 .score { text-align: center; margin-top: 26px; }
-.score .n { font-family: var(--font-display); font-size: 64px; line-height: 1.2; color: var(--accent); }
-.score .n small { font-size: 26px; color: var(--muted); }
+.score .n { font-weight: 700; font-size: 66px; line-height: 1.4; color: var(--accent); }
+.score .n small { font-size: 28px; color: var(--muted); }
 .score p { margin: 4px 0 0; color: var(--muted); }
 .actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-top: 18px; }
-.review { margin-top: 26px; display: grid; gap: 12px; }
-.review .it { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; font-size: 16.5px; }
-.review .it b { font-family: var(--font-display); font-weight: 500; display: block; margin-bottom: 4px; }
+.review { margin-top: 18px; display: grid; gap: 12px; }
+.review .it { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; font-size: 17.5px; line-height: 1.9; }
+.review .it b { font-weight: 700; display: block; margin-bottom: 4px; }
 .review .it .a { color: var(--good); }
 .review .it .w { color: var(--bad); }
-.src { margin-top: 36px; border-top: 1px solid var(--line); padding-top: 14px; font-size: 15px; color: var(--muted); }
+.src { margin-top: 36px; border-top: 1px solid var(--line); padding-top: 14px; font-size: 16px; color: var(--muted); }
 .src ul { margin: 6px 0 0; padding-inline-start: 1.2em; }
 .src a { color: var(--accent); overflow-wrap: anywhere; }
-.credit { margin-top: 28px; padding-top: 14px; border-top: 1px solid var(--line); text-align: center; font-family: var(--font-display); font-size: 17px; color: var(--muted); }
+.credit { margin-top: 28px; padding-top: 14px; border-top: 1px solid var(--line); text-align: center; font-weight: 700; font-size: 18px; color: var(--muted); }
 @media (prefers-reduced-motion: reduce) { .bar i { transition: none; } }
 </style>
 
@@ -129,7 +129,7 @@ button:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
 <div class="hero">
   <svg id="stars" viewBox="0 0 300 70" aria-hidden="true"></svg>
   <h1>مسابقة الشركس</h1>
-  <p>ثلاثون سؤالاً للتعرّف على شعب الأديغة: أصله وتاريخه وتهجيره ولغته وعاداته وحضوره في الأردن.</p>
+  <p>مئة سؤال للتعرّف على شعب الأديغة: أصله وتاريخه وتهجيره ولغته وعاداته وحضوره في الأردن وبلاد الشام.</p>
 </div>
 
 <main class="wrap" id="app"></main>
@@ -162,7 +162,7 @@ document.documentElement.lang = "ar";
 var STAGES = [
   {
     title: "من هم الشركس؟",
-    sub: "الاسم والموطن واللغة والدين",
+    sub: "الاسم والموطن واللغة والعلم والقبائل",
     q: [
       { q: "ما الاسم الذي يطلقه الشركس على أنفسهم؟", a: ["أديغة", "قوقاز", "تتار", "أباظة"],
         e: "كلمة «شركس» أطلقها عليهم جيرانهم من الروس والأتراك والتتار، أما هم فيسمّون أنفسهم «أديغة»." },
@@ -183,12 +183,32 @@ var STAGES = [
       { q: "ما اسم التراث الملحمي المشترك بين الشركس والأبخاز والأباظة والأوبيخ؟", a: ["ملحمة النارت", "ألف ليلة وليلة", "الشاهنامه", "ملحمة جلجامش"],
         e: "حكايات النارت أساطير وبطولات يتناقلها الشركس وجيرانهم القوقازيون، وهي من أغنى مصادر معرفة معتقداتهم القديمة." },
       { q: "أيّ مما يلي ليس من الجمهوريات الشركسية الثلاث في روسيا؟", a: ["داغستان", "أديغيا", "قباردينو بلقاريا", "قراتشاي شركيسيا"],
-        e: "الجمهوريات الثلاث هي أديغيا وقباردينو بلقاريا وقراتشاي شركيسيا، أما داغستان فجمهورية أخرى في شمال القوقاز." }
+        e: "الجمهوريات الثلاث هي أديغيا وقباردينو بلقاريا وقراتشاي شركيسيا، أما داغستان فجمهورية أخرى في شمال القوقاز." },
+      { q: "كم يُقدَّر عدد الشركس في العالم؟", a: ["نحو 5.3 ملايين نسمة", "نحو 500 ألف نسمة", "نحو 20 مليون نسمة", "نحو 50 ألف نسمة"],
+        e: "تقدّر المراجع عددهم بنحو 5.3 ملايين، يعيش معظمهم خارج القوقاز، ونحو نصفهم في تركيا." },
+      { q: "ما لون خلفية العلم الشركسي؟", a: ["أخضر", "أحمر", "أزرق", "أبيض"],
+        e: "العلم الشركسي أخضر، عليه 12 نجمة ذهبية وثلاثة سهام ذهبية متقاطعة." },
+      { q: "تمثل ثلاث من نجوم العلم القبائل «الديمقراطية»، فما هي؟", a: ["النتوخاي والشابسوغ والأبزاخ", "القباردي والبسلني والحاتقواي", "الأوبيخ والتيميرجوي والبجدوغ", "الجاني والمامخيغ واليغروقواي"],
+        e: "تمثل تسع نجوم في القوس القبائل الأرستقراطية، وتمثل النجوم الثلاث الأفقية القبائل الديمقراطية: النتوخاي والشابسوغ والأبزاخ." },
+      { q: "أيّ دين عرفه القوقاز قبل الإسلام، وانتشر فيه بين القرنين الثالث والخامس الميلاديين؟", a: ["المسيحية", "البوذية", "الهندوسية", "الزرادشتية وحدها"],
+        e: "انتشرت المسيحية في القوقاز بين القرنين الثالث والخامس، وكان الشركس على المسيحية قبل أن يدخل الإسلام بينهم تدريجياً." },
+      { q: "ما العلاقة بين الأديغية والقبردية؟", a: ["لغتان قريبتان جداً، ويراهما بعضهم لهجتين للغة واحدة", "لغتان لا تشتركان في شيء", "الأولى مشتقة من الروسية", "الثانية مشتقة من التركية"],
+        e: "الأديغية هي الشركسية الغربية، والقبردية هي الشركسية الشرقية، وتتشابهان كثيراً ويفهم متكلمو إحداهما الأخرى في الغالب." },
+      { q: "أيّ لغتين من العائلة نفسها أبعد قرابة بالأديغية من القبردية؟", a: ["الأبخازية والأبازية", "الروسية والأوكرانية", "التركية والأذرية", "الفارسية والكردية"],
+        e: "الأبخازية والأبازية والأوبيخية من العائلة القوقازية الشمالية الغربية نفسها، لكنها أبعد من القبردية عن الأديغية." },
+      { q: "ما عاصمة جمهورية أديغيا؟", a: ["مايكوب", "نالتشيك", "تشيركيسك", "سوتشي"],
+        e: "مايكوب هي عاصمة أديغيا، وقد اشتهرت باسمها حضارة مايكوب القديمة. ونالتشيك عاصمة قباردينو بلقاريا، وتشيركيسك عاصمة قراتشاي شركيسيا." },
+      { q: "ما عاصمة جمهورية قباردينو بلقاريا؟", a: ["نالتشيك", "مايكوب", "غروزني", "ماخاتشكالا"],
+        e: "نالتشيك هي عاصمة قباردينو بلقاريا حيث يعيش القباردي، وهم الفرع الشرقي من الشركس." },
+      { q: "كم سجّل تعداد روسيا عام 2021 من الشركس تقريباً؟", a: ["نحو 751 ألفاً", "نحو 75 ألفاً", "نحو 7.5 ملايين", "نحو مليونين"],
+        e: "سجّل التعداد الروسي لعام 2021 نحو 751 ألف شركسي، وهم أقل بكثير ممن يعيشون في الشتات." },
+      { q: "أيّ بحرين يحدّان القوقاز من الغرب والشرق؟", a: ["الأسود وقزوين", "المتوسط والأحمر", "البلطيق وبحر الشمال", "الأدرياتيكي وإيجة"],
+        e: "يمتد القوقاز بين البحر الأسود غرباً وبحر قزوين شرقاً، وتحدّه روسيا من الشمال وتركيا من الجنوب." }
     ]
   },
   {
-    title: "التهجير والشتات",
-    sub: "حرب القوقاز وهجرة 1864 والاستقرار في الأردن",
+    title: "الحرب والتهجير",
+    sub: "من 1763 إلى 1864 وما بعدها",
     q: [
       { q: "كم سنة استمرت الحرب الروسية القوقازية بين 1763 و1864؟", a: ["101 سنة", "25 سنة", "50 سنة", "200 سنة"],
         e: "عُرفت بحرب المئة عام وعام، وصُنّفت من أطول الحروب وأكثرها دموية، وقُدّر ضحاياها بمئات الآلاف من سكان القوقاز." },
@@ -201,158 +221,4 @@ var STAGES = [
       { q: "ما نسبة الشركس الذين يعيشون اليوم خارج وطنهم الأصلي؟", a: ["الغالبية العظمى (نحو 80% فأكثر)", "أقل من 10%", "نحو 25%", "نحو النصف"],
         e: "تشير التقديرات إلى أن نحو 80% من الشركس، وبعض التقديرات تقول 90%، يعيشون في الشتات، وأكبر تجمعاتهم في تركيا." },
       { q: "لماذا أثارت أولمبياد سوتشي 2014 احتجاج الشركس؟", a: ["لأنها أُقيمت على أرض ارتبطت بتهجيرهم قبل 150 عاماً", "لأنها منعت لغتهم", "لأنها أُقيمت في الأردن", "لأنها ألغت علمهم"],
-        e: "جاءت الألعاب في الذكرى الـ150 لتهجير 1864، وفي منطقة تاريخية للشركس، فأعادت إلى الواجهة قضية الاعتراف بما جرى لهم." },
-      { q: "أيّ لغة قوقازية انقرضت بوفاة آخر متحدث بها، توفيق إسنج، عام 1992؟", a: ["الأوبيخية", "القبردية", "الأديغية", "الأبازية"],
-        e: "الأوبيخية لغة أبناء قبيلة الأوبيخ، وقد اشتهرت بكثرة أصواتها الساكنة، وماتت في تركيا بعد التهجير." },
-      { q: "متى بدأ استقرار الشركس في الأردن؟", a: ["عام 1878", "عام 1921", "عام 1948", "عام 1967"],
-        e: "وصلوا قبل تأسيس إمارة شرق الأردن بعقود، بعد حرب 1877–1878 بين روسيا والدولة العثمانية، وكثير منهم جاء من البلقان." },
-      { q: "ما المدينة التي نشأت قرية شركسية فيها عام 1878 وصارت لاحقاً عاصمة؟", a: ["عمّان", "إربد", "الكرك", "العقبة"],
-        e: "استقر الشركس قرب مصادر المياه والأراضي الزراعية، فكانت عمّان أولى قراهم عام 1878، ثم وادي السير عام 1880." },
-      { q: "أيّ مدينة أردنية أسّس الشركس قرية فيها عام 1884؟", a: ["جرش", "مأدبا", "السلط", "معان"],
-        e: "تأسست القرى الشركسية الثلاث الأولى في الأردن بين 1878 و1884: عمّان ووادي السير وجرش." }
-    ]
-  },
-  {
-    title: "اللغة والعادات والحضور العربي",
-    sub: "الخابزة والتهمادة والمماليك والأردن",
-    q: [
-      { q: "ما «أديغة خابزة»؟", a: ["مدوّنة الأعراف والأخلاق الشركسية غير المكتوبة", "اسم نهر في القوقاز", "نوع من الرقصات", "لقب لقائد عسكري"],
-        e: "الخابزة دستور أخلاقي واجتماعي تناقله الشركس شفاهاً منذ آلاف السنين، وكلمة «خابزة» صارت تعني العرف والعادة والقاعدة." },
-      { q: "أيّ القيم التالية تحثّ عليها الخابزة؟", a: ["احترام الكبار والمرأة وإكرام الضيف", "الاستخفاف بالضيف", "الكذب إذا نفع", "إهمال كبار السن"],
-        e: "من أركان الخابزة احترام الكبار وتوقير المرأة، والصدق والشرف والشجاعة، وكرم الضيافة المشهور عند الشركس." },
-      { q: "ما دور «التهمادة» في المناسبات الشركسية؟", a: ["كبير يدير المناسبة ويتولى ترتيب الأفراح والولائم", "عازف ناي", "صانع سيوف", "حارس القرية"],
-        e: "التهمادة غالباً شخص كبير في السن يحظى بالاحترام، ويتحمل مسؤولية أمور مثل الأعراس وإدارة مجالس الضيافة." },
-      { q: "كيف يُعاقَب في العادة من يخالف الخابزة؟", a: ["بالمقاطعة والإقصاء الاجتماعي", "بغرامة مالية فقط", "بالسجن", "بالنفي خارج البلاد"],
-        e: "أشد ما يخشاه الشركسي أن يُقاطَع، فلا يحضر الناس أفراحه ولا جنازته، ولذلك يحرصون على الالتزام بالعادات." },
-      { q: "ماذا توصي الخابزة في الزواج؟", a: ["الزواج من الشركس للحفاظ على الهوية والثقافة", "الزواج بعد سن الستين", "الزواج دون علم الأهل", "منع الزواج بين القبائل الشركسية"],
-        e: "من مبادئ الخابزة التقليدية الزواج داخل الجماعة حفاظاً على ثقافة تهددها الغربة والتفرق." },
-      { q: "بأي حرف تُكتب اللغة الأديغية منذ عام 1936؟", a: ["الكيريلي (الروسي)", "العربي", "اللاتيني", "الجورجي"],
-        e: "كُتبت الأديغية قديماً بحروف عربية ولاتينية، ثم اعتُمد الحرف الكيريلي رسمياً عام 1936." },
-      { q: "كم يبلغ تقريباً عدد الأصوات الساكنة في اللهجات الأديغية؟", a: ["بين 50 و60 صوتاً", "بين 15 و20", "بين 24 و28", "أكثر من 100"],
-        e: "تتميز الأديغية بعدد كبير من الأصوات الساكنة يتراوح بين خمسين وستين بحسب اللهجة، وهذا ما يجعلها صعبة على متعلميها." },
-      { q: "من مؤسس دولة المماليك الشراكسة (البرجية) في مصر والشام؟", a: ["الظاهر برقوق", "الظاهر بيبرس", "المنصور قلاوون", "صلاح الدين الأيوبي"],
-        e: "تولى برقوق السلطنة عام 1382م (784هـ)، وحكم المماليك الشراكسة مصر والشام حتى الفتح العثماني عام 1517م." },
-      { q: "ما المهمة المعروفة للحرس الشركسي في الأردن؟", a: ["حراسة الملك", "حرس الحدود فقط", "إدارة الموانئ", "حراسة المساجد"],
-        e: "اشتهر الشركس في الأردن بالخدمة في الجيش والأمن، ومنها الحرس الملكي الشركسي المكلف بحراسة الملك." },
-      { q: "كم يُقدَّر عدد الشركس في الأردن؟", a: ["بين 100 و170 ألفاً", "نحو 5 آلاف", "نحو 20 ألفاً", "نحو 3 ملايين"],
-        e: "تتفاوت التقديرات لعدم وجود إحصاء رسمي بحسب الأصل، وهم يتكلمون الشركسية والعربية الأردنية، وجمعيات ثقافية تحافظ على تراثهم." }
-    ]
-  }
-];
-
-var KEY = "circassian-quiz-best";
-var app = document.getElementById("app");
-var LET = ["أ", "ب", "ج", "د"];
-var state = null;
-
-function getBest() { try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { return {}; } }
-function setBest(i, s) {
-  try { var b = getBest(); if (b[i] == null || s > b[i]) { b[i] = s; localStorage.setItem(KEY, JSON.stringify(b)); } } catch (e) {}
-}
-function shuffle(a) {
-  a = a.slice();
-  for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; }
-  return a;
-}
-function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;"); }
-
-function home() {
-  state = null;
-  var best = getBest(), h = '<div class="stages">';
-  STAGES.forEach(function (s, i) {
-    h += '<button class="stage" data-stage="' + i + '"><span class="no">' + (i + 1) + '</span>' +
-      '<span class="t"><b>' + s.title + '</b><span>' + s.sub + '</span></span>' +
-      '<span class="best">' + (best[i] != null ? "أفضل نتيجة " + best[i] + "/10" : "10 أسئلة") + '</span></button>';
-  });
-  h += '</div><div class="all"><button class="stage" data-stage="all"><span class="no">★</span>' +
-    '<span class="t"><b>المسابقة الكاملة</b><span>ثلاثون سؤالاً مخلوطة من المراحل الثلاث</span></span>' +
-    '<span class="best">30 سؤالاً</span></button></div>';
-  h += '<div class="src"><b>المصادر</b><ul>' +
-    '<li><a href="https://arabicpost.net/%d8%ab%d9%82%d8%a7%d9%81%d8%a9/2018/09/23/%d8%b1%d8%ba%d9%85-%d8%a7%d9%84%d8%ad%d8%b1%d9%88%d8%a8-%d9%88%d8%a7%d9%84%d9%86%d8%b2%d9%88%d8%ad%d8%8c-%d9%81%d8%a5%d9%86%d9%87%d9%85-%d9%85%d8%aa%d9%85%d8%b3%d9%83%d9%88%d9%86-%d8%a8%d8%a7%d9%84/" target="_blank" rel="noopener">عربي بوست: الأديغة خابزة</a></li>' +
-    '<li><a href="https://www.enabbaladi.net/406667/" target="_blank" rel="noopener">عنب بلدي: كيف حافظ شركس سوريا على موروثهم</a></li>' +
-    '<li><a href="https://www.enabbaladi.net/303229" target="_blank" rel="noopener">عنب بلدي: شركس سوريا، قومية جامعة وهوية متجددة</a></li>' +
-    '<li><a href="https://www.ajnet.me/encyclopedia/2016/5/29/تهجير-الشركس-من-القوقاز-جريمة" target="_blank" rel="noopener">الجزيرة: تهجير الشركس من القوقاز</a></li>' +
-    '<li><a href="https://www.ajnet.me/culture/2026/7/26/حارس-التراث-الشركسي-عدنان-بزادوغ" target="_blank" rel="noopener">الجزيرة: حارس التراث الشركسي</a></li>' +
-    '<li><a href="https://en.wikipedia.org/wiki/Circassians_in_Jordan" target="_blank" rel="noopener">Wikipedia: Circassians in Jordan</a></li>' +
-    '<li><a href="https://en.wikipedia.org/wiki/Adyghe_Xabze" target="_blank" rel="noopener">Wikipedia: Adyghe Khabze</a></li>' +
-    '<li><a href="https://en.wikipedia.org/wiki/Adyghe_language" target="_blank" rel="noopener">Wikipedia: Adyghe language</a></li>' +
-    '</ul></div>';
-  app.innerHTML = h;
-  Array.prototype.forEach.call(app.querySelectorAll("[data-stage]"), function (b) {
-    b.addEventListener("click", function () { start(b.getAttribute("data-stage")); });
-  });
-}
-
-function start(which) {
-  var qs = [];
-  if (which === "all") { STAGES.forEach(function (s) { qs = qs.concat(s.q); }); qs = shuffle(qs); }
-  else { qs = shuffle(STAGES[+which].q); }
-  state = { which: which, qs: qs, i: 0, score: 0, wrong: [] };
-  question();
-}
-
-function question() {
-  var q = state.qs[state.i], total = state.qs.length;
-  var opts = shuffle(q.a.map(function (t, k) { return { t: t, ok: k === 0 }; }));
-  state.cur = { opts: opts, done: false };
-  var h = '<div class="top"><button class="linkbtn" id="back">الرئيسية</button><span>السؤال ' + (state.i + 1) + ' من ' + total + '</span></div>' +
-    '<div class="bar"><i style="width:' + (state.i / total * 100) + '%"></i></div>' +
-    '<div class="qcard"><h3>' + esc(q.q) + '</h3><div class="opts">';
-  opts.forEach(function (o, k) {
-    h += '<button class="opt" data-k="' + k + '"><span class="l">' + LET[k] + '</span><span class="x">' + esc(o.t) + '</span></button>';
-  });
-  h += '</div><div id="fb"></div></div>';
-  app.innerHTML = h;
-  document.getElementById("back").addEventListener("click", home);
-  Array.prototype.forEach.call(app.querySelectorAll(".opt"), function (b) {
-    b.addEventListener("click", function () { answer(+b.getAttribute("data-k")); });
-  });
-}
-
-function answer(k) {
-  if (state.cur.done) return;
-  state.cur.done = true;
-  var q = state.qs[state.i], o = state.cur.opts[k], right = o.ok;
-  var btns = app.querySelectorAll(".opt");
-  Array.prototype.forEach.call(btns, function (b, j) {
-    b.disabled = true;
-    if (state.cur.opts[j].ok) b.classList.add("ok");
-    else if (j === k) b.classList.add("no");
-  });
-  if (right) state.score++; else state.wrong.push({ q: q.q, mine: o.t, right: q.a[0], e: q.e });
-  var last = state.i === state.qs.length - 1;
-  document.getElementById("fb").innerHTML =
-    '<div class="fb ' + (right ? "ok" : "no") + '"><strong>' + (right ? "إجابة صحيحة" : "إجابة غير صحيحة") + '</strong>' + esc(q.e) + '</div>' +
-    '<div class="next"><button class="btn" id="nx">' + (last ? "عرض النتيجة" : "السؤال التالي") + '</button></div>';
-  var nx = document.getElementById("nx");
-  nx.addEventListener("click", function () { if (last) result(); else { state.i++; question(); window.scrollTo(0, 0); } });
-  nx.focus({ preventScroll: false });
-}
-
-function result() {
-  var total = state.qs.length, s = state.score, pct = s / total;
-  if (state.which !== "all") setBest(+state.which, s);
-  var msg = pct >= 0.9 ? "ممتاز، أنت على معرفة واسعة بالشعب الشركسي." :
-            pct >= 0.7 ? "جيد جداً، بقيت أمور قليلة تستحق المراجعة." :
-            pct >= 0.5 ? "جيد، راجع الشروح أدناه ثم أعد المحاولة." :
-            "ابدأ بقراءة الشروح أدناه ثم أعد المحاولة، فالمعلومات ستثبت سريعاً.";
-  var h = '<div class="score"><div class="n">' + s + '<small> / ' + total + '</small></div><p>' + msg + '</p></div>' +
-    '<div class="actions"><button class="btn" id="again">أعد المرحلة</button><button class="btn ghost" id="home">الرئيسية</button></div>';
-  if (state.wrong.length) {
-    h += '<h2 style="margin-top:28px">ما أخطأت فيه</h2><div class="review">';
-    state.wrong.forEach(function (w) {
-      h += '<div class="it"><b>' + esc(w.q) + '</b><div class="w">إجابتك: ' + esc(w.mine) + '</div><div class="a">الصحيح: ' + esc(w.right) + '</div><div>' + esc(w.e) + '</div></div>';
-    });
-    h += '</div>';
-  }
-  app.innerHTML = h;
-  document.getElementById("again").addEventListener("click", function () { start(state.which); window.scrollTo(0, 0); });
-  document.getElementById("home").addEventListener("click", function () { home(); window.scrollTo(0, 0); });
-  window.scrollTo(0, 0);
-}
-
-home();
-</script>
-
-</body>
-</html>
+        e: "جاءت الألعاب في الذكرى الـ150 لتهجير 1864، وفي منطقة تاريخية للشركس،
